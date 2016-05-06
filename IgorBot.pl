@@ -4,17 +4,38 @@ use 5.014;
 use warnings qw{all FATAL utf8};
 use lib qw{lib};
 use Igor;
+use Proc::Fork;
 
-binmode STDOUT, ':encoding(UTF-8)';
-binmode STDERR, ':encoding(UTF-8)';
+run_fork {
+    child {
+        binmode STDOUT, ':encoding(UTF-8)';
+        binmode STDERR, ':encoding(UTF-8)';
 
-my $igor = Igor->new_with_options();
+        my $igor = Igor->new_with_options();
 
-my $handler = sub { $igor->disconnect(@_) };
-require sigtrap;
-sigtrap->import( 'handler' => $handler, 'normal-signals' );
+        my $handler = sub { $igor->disconnect(@_) };
+        require sigtrap;
+        sigtrap->import( 'handler' => $handler, 'normal-signals' );
 
-$igor->run();
+        $igor->run();
+    parent {
+        my $child_pid = shift;
+        # waitpid $child_pid, 0;
+        open(my $pidfile,">.bot.pid");
+        print $pidfile $child_pid . "\n";
+        close $pidfile;
+    }
+    retry {
+        my $attempts = shift;
+        # what to do if fork() fails:
+        # return true to try again, false to abort
+        return if $attempts > 5;
+        sleep 1, return 1;
+    }
+    error {
+        die "Couldn't fork: $!\n";
+    }
+};
 
 exit;
 __END__
