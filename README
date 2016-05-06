@@ -1,0 +1,243 @@
+Igor is a bot that sits in an IRC channel and listens for commands.
+
+It has several functions that those commands trigger.
+
+    1) Manage user profiles, intros and favourite quotes.
+
+    2) Voices users with completed profiles, removes it from those without.
+
+    3) Maintain, and enforce, a list of timed channel bans.
+
+    4) List the room rules.
+
+    5) List the commands it understands.
+
+    6) Do temperature conversions.
+
+    7) Retrieve fortune cookie messages.
+
+It knows how to talk to nickserv and authenticate its nick, and it will try to
+rejoin the network if it gets disconnected. It regulates its output to the
+network to avoid being disconnected for flooding.
+
+If another bot is in channel, e.g. for trivia or for a D.J., it can be
+configured to ignore any triggers intended for the guest bot. And, if any are
+sent directly to it (via pm), it knows to tell the user to talk to the guest
+bot.
+
+If configured to, it will log all IRC chatter to files.
+
+
+*** INSTALLATION ***
+Installation should be as simple as unpacking the tarball. You will need to
+have sqlite3 and Perl (version 5.014 or greater) on your system.
+
+You will also need to install a bunch of CPAN modules. The list in Makefile.PL
+should cover most of them. The bot has functionality that depends on the
+utilities sendmail and fortune, but they are optional.
+
+It's only ever been run/tested on a Linux sytem.
+
+
+*** STARTING ***
+To run it, just type
+
+    perl ./IgorBot.pl
+
+Or, if you prefer,
+
+    nohup perl ./IgorBot.pl &
+
+I've found that sometimes it takes a minute - the first attempt fails and it
+takes a second go to make a successful connection. So be patient - it might be
+the network's fault rather than Igor's!
+
+There is a testing mode that joins a different channel, uses a different
+nick, simulates kick-bans in channel - for debug. To get it use
+
+    perl ./IgorBot.pl --devel
+
+
+Similarly, if there's some problem with the regular version, someone else can
+run another copy, presumably on another server, in stand-in mode - again it has
+a different nick, but joins the same channel and has reduced functionality.
+Mainly to avoid problems with syncing the profile database afterwards. To get
+that mode, use
+
+    perl ./IgorBot.pl --deputy
+
+
+*** CONFIGURATION ***
+Much of what Igor does is configurable. The settings can be changed by editing
+the file IgorConfig.json in the same directory as the bot script. This file is
+in JSON format and you should be careful about not breaking the rules of that
+format. However the bot understands most formats so, if you prefer, you can
+rewrite it in YAML or INI, etc.
+
+Profiles, random intros and bans are stored in an SQLite3 database.The original
+code for setting up the database is in the file CreateDB.sql in the main
+directory. This file is also used for running tests so, if you change your
+database, change the code here too.
+
+The names of the elements of the profiles are configurable settings. But this is
+more in principle than in reality. They have to use the same names as the
+database tables and fields. Changing one would mean having to change the other.
+
+Furthermore, some of those names are hard-coded into the library methods in
+Igor's source. I've tried to keep this to a minimum but, as of version 3.008
+there are still some there.
+
+The take-home message is, don't change the profile field names just because you
+can unless you're prepared to roll up your sleeves and poke around in the source
+code.
+
+The various configuration settings are listed here with brief explanations of
+what they do.
+
+
+The first group lists the settings that you should think long and hard about
+changing as per the notes above.
+
+
+all_fields:             The names of the parts of the user profiles.
+teaser_fields:          The parts of the user profiles used to announce them
+                        when they join the channel.
+optional_fields:        These aren't part of the profile and are optional.
+
+
+The remaining settings should be safe to change at will.
+
+
+backup_email_address:   The address(es) where database back-ups are sent.
+bot_admins:             The user nicks who have particular privileges.
+bot_nick:               The user nick used by the bot.
+channel:                The name of the channel the bot sits in.
+chanserv_password:      The chanserv password used for the channel. The bot
+                        doesn't actually need this.
+ctcp_response:          The texts to be used in response to various ctcp
+                        requests.
+db_file:                The name of the file used for the database.
+examples:               Examples given to show how the profile building works.
+forum_url:              A web link to a channel forum or website.
+greeting:               A greeting for users joining the channel.
+guest_bot:              The name of a guest bot - usually this is something
+                        from a radio station, but it doesn't have to be.
+guest_commands:         The list of commands that will be meant for the guest
+                        bot, and which should therefore generally be ignored.
+guest_function:         What the guest bot is for. A single noun is best, to
+                        fit more naturally with where it's used, e.g. radio or
+                        trivia.
+have_guest_bot:         Whether the channel has a guest bot or not. 1 for yes,
+                        0 for no.
+ircname:                The "real name" that appears when someone does /whois
+                        on the bot.
+join_message:           What the bot says when it joins the channel.
+log_directory:          Where the bot saves logs.
+logging:                Whether the bot logs at all - 1 for yes, 0 for no.
+longest_ban:            The maximum allowed ban, independent of units. I.e. the
+                        most hours, days, weeks, etc, a ban can be set for.
+longest_fortune:        Some of the output returned by the fortune command can
+                        be very long. This setting limits the length accepted.
+longest_nick:           The maximum length allowed for a user nick. Really this
+                        is determined by the IRC network but it's useful for the
+                        code that handles the !copy trigger.
+longest_profile_field:  The maximum length allowed for a field in the user
+                        profile. This should be less than the line length limit
+                        of the IRC network, leaving enough space for the
+                        field prompts.
+longest_teaser_field:   The maximum length allowed for a teaser field. These
+                        also have prompt tags and are all combined into a
+                        single post.
+max_temp:               The bot has a temperature conversion function. This
+                        sets the maximum input number it will accept.
+min_rand_intro:         If someone joining doesn't have their own intro, Igor
+                        will select one at random. This setting specifies a
+                        minimum length to avoid the boring ones like "Hi", etc.
+nickserv_password:      The bot's password for nickserv.
+policy:                 Every command the bot understands can be issued in
+                        public (in the channel), or in private (by notice or
+                        pm). In each case there is a minimum status (voice, op,
+                        ower, etc) the user issuing the command must have and a
+                        message the bot uses if they don't meet that minimum.
+                        Each command also has its own help text. The 'policy'
+                        setting holds all that information and is required for
+                        each trigger the bot is to respond to.
+                        In the help text, <b> tags are used to mark text that
+                        will be sent in bold.
+                        Anything in double angle brackets, e.g. <<bot_nick>>,
+                        will be replaced by the corresponding value of the
+                        config parameter if there is one. Anything else will be
+                        ignored, except <<nick>> which is replaced by the nick
+                        of the user who issued the command.
+port:                   The port to use when connecting to the network.
+prompts:                The questions asked of the user when building a
+                        profile.
+quit_message:           The bot leaves this parting message when it quits.
+real_bot:               It can happen that whoever hosts the bot has to take it
+                        offline temporarily. In that case, someone else can run
+                        a back-up copy with an altered nick and limited
+                        functionality - e.g. no new profiles or changes to
+                        profiles, to avoid the database getting confused. If
+                        the stand-in copy sees a user with this 'real_bot' nick
+                        join channel, it will leave.
+rules:                  The text of the channel's rules.
+search_result_max:      The maximum number of matches to report when searching
+                        profiles or intros.
+server:                 The address of the IRC server.
+server_list:            A list of servers to try (re-)connecting to.
+shortest_mask:          The minimum length allowed for a ban mask - very short
+                        masks aren't likely to be useful.
+shortest_search:        The bot can search profiles for keywords. This sets the
+                        minimum allowed length for the keyword.
+status:                 Users have a rank based on having voice, or ops, or
+                        being channel owner, etc. The ordering here determines
+                        what each rank is allowed to do via the policy above.
+                        There's no real need to change this, but it's here if
+                        you want to mix things up a bit.
+tags:                   Labels used for each part of the profile in the teaser
+                        and full version.
+timestamp_db:           The format used for timestamps in the database. Uses
+                        strftime notation.
+timestamp_output:       The format used for timestamps in anything the bot
+                        posts. Also uses strftime notation.
+username:               The username that appears in the bot's whois.
+
+
+The following two settings are used to over-ride anything in the list above.
+In the JSON file they are mini-versions of the config file itself.
+
+
+deputy:                 If a copy of the bot is being run as a back-up, as
+                        described under 'real_bot' above, values set in this
+                        section will have precedence. It's a good idea to
+                        switch off profile creation and editing so that you
+                        don't have to merge databases when the main bot gets
+                        back.
+devel:                  If the bot code is being edited, for bug-fixing or new
+                        tricks, it will give priority to values for settings
+                        from this section rather than anywhere else. Usually a
+                        different channel is used, and a different bot name.
+
+
+*** CONSTRUCTION ***
+Igor is written in Perl, and makes heavy use of POE for connecting to the
+network and all other IRC functions, DBIx for managing its profile/ban/intro
+database, and Moose for processing commands, and holding it all together.
+
+Igor.pl is just a wrapper script that calls Igor.pm so that the whole thing can
+be object-oriented - and therefore testable.
+
+Igor.pm takes care of connecting to the network, joining the channel, reacting
+to IRC events, responding to user commands and where required implementing the
+outcome of those commands.
+
+Handling user commands is done by calling methods in Igor::Commands, which is
+really the work-horse of the bot.
+
+The various other modules are for specific tasks and are mostly, but not
+exclusively, called by Igor::Commands. Each module should be reasonably well
+documented if you're trying to tweak Igor's behaviour.
+
+
+*** CONTACT ***
+gamesh.g@gmail.com

@@ -1,0 +1,39 @@
+severity = 1
+colour   = 1
+exclude  = Miscellanea::RequireRcsKeywords
+
+
+[Documentation::RequirePodSections]
+
+# Even though these are immediately over-ridden leave them in for ease of switching.
+# Also en_IE not allowed!
+source   = book
+language = en_AU
+
+# Pity we can't specify a common list first.
+lib_sections    = NAME | VERSION | SYNOPSIS | DESCRIPTION | METHODS/SUBROUTINES | CONFIGURATION AND ENVIRONMENT | BUGS AND LIMITATIONS | AUTHOR | LICENCE AND COPYRIGHT
+script_sections = NAME | VERSION | USAGE | DESCRIPTION | REQUIRED ARGUMENTS | OPTIONS | SUBROUTINES | BUGS AND LIMITATIONS | AUTHOR | LICENCE AND COPYRIGHT
+
+
+[Documentation::PodSpelling]
+stop_words_file = t/data/stopwords.txt
+
+
+[Variables::ProhibitPackageVars]
+packages = Data::Dumper File::Find FindBin DBI Carp
+
+
+# Allow for Moose builders
+[Subroutines::ProhibitUnusedPrivateSubroutines]
+private_name_regex = _(?!build_)\w+
+
+
+[TestingAndDebugging::ProhibitNoStrict]
+allow = vars subs refs
+
+[TestingAndDebugging::ProhibitNoWarnings]
+allow = uninitialized once
+
+[ControlStructures::ProhibitPostfixControls]
+allow = if until
+flowcontrol = return

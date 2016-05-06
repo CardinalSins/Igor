@@ -1,0 +1,350 @@
+---
+all_fields:
+- age
+- sex
+- loc
+- bdsm
+- limits
+- kinks
+- fantasy
+- desc
+- quote
+- intro
+backup_email_address: [ 'someone@some.where.tld', 'another@one.to.email' ]
+bot_nick: 'tIgor'
+channel: '#my_hang_out'
+db_file: 't/data/profiles.db'
+examples:
+  age:     '!age 32 or !age decrepit'
+  sex:     '!sex Straight, male or !sex dysfunctional'
+  loc:     '!loc Paris, Texas or !loc Ummm, look under your desk...'
+  bdsm:    '!bdsm painslut or !bdsm switch'
+  limits:  '!limits txtspeek, profilebots, wet spots'
+  kinks:   '!kinks clowns, intimacy, the cold, cold, ground'
+  fantasy: '!fantasy literacy, legs, being hogtied'
+  desc:    'whatever you want - physical, psychological, spiritual or stream of consciousness'
+  quote:   '!quote smart stuff here'
+  intro:   '!intro ta-daaaa!'
+forum_url: 'http://nah.what.for/'
+guest_bot: 'smashy_n_nicey'
+guest_function: 'radio'
+guest_commands:
+  - tunein
+  - 8ball
+have_guest_bot: 1
+log_directory: 'save/logs/here'
+longest_ban: 100
+longest_fortune: 480
+longest_intro: 50
+longest_nick: 30
+longest_profile_field: 410
+longest_teaser_field: 66
+max_temp: 98765
+optional_fields:
+- quote
+- intro
+policy:
+  addintro:
+    private:
+        - 3
+        - 'No, no, no'
+    public:
+        - 3
+        - 'Still no'
+    help:
+        - 'How to add an intro'
+  delintro:
+    private:
+        - 3
+        - 'Not a chance'
+    public:
+        - 3
+        - 'Slim and f**k all'
+    help:
+        - 'How to delete an intro'
+  findintro:
+    private:
+        - 3
+        - 'You again?'
+    public:
+        - 3
+        - 'Get outta here'
+    help:
+        - 'How to find an intro'
+  banish:
+    private:
+        - 4
+        - 'That command is above your pay grade.'
+    public:
+        - 4
+        - "You're over-reaching there, bub."
+    help:
+      - "Use <b>!banish <mask> <#> <time><b> to set a ban, <<nick>>"
+      - "Note that <<bot_nick>> checks these for <<channel>>"
+  banlist:
+    private:
+        - 6
+        - "That information is classified."
+    public:
+        - 6
+        - "Access denied, corporal."
+    help:
+      - "PM <b>!banlist<b> to <<bot_nick>> to get details of current timed bans."
+  check:
+    private:
+      - 3
+      - "Some excuse"
+    public:
+      - 4
+      - "More of the same"
+    help:
+      - "How to find last access date for profile"
+  cite:
+    private:
+      - 2
+      - "Set it low"
+    public:
+      - 2
+      - "Here too"
+    help:
+      - "How to get an inspirational quote"
+  confess:
+    private:
+      - 1
+      - "Whisper the reason"
+    public:
+      - 1
+      - "Why you can't do that goes here."
+    help:
+      - "How to confess your sins"
+  convert:
+    private:
+        - 6
+        - "An exclusive club."
+    public:
+        - 4
+        - "Won't convert for you."
+    help:
+        - "To convert x to y do blah, blah, blah."
+  copy:
+    private:
+      - 3
+      - "Njet, comrad"
+    public:
+      - 4
+      - "No, no, no."
+    help:
+      - "How to copy profiles"
+  db_backup:
+    private:
+      - 7
+      - "Backup up is off"
+    public:
+      - 6
+      - "Got a headache"
+    help:
+      - "How to back-up the database"
+  erase:
+    private:
+      - 6
+      - "Running out of these"
+    public:
+      - 6
+      - "So boring"
+    help:
+      - "How to delete profiles"
+  e:
+    private:
+      - 7
+      - "Oh yawn"
+    public:
+      - 6
+      - "No way, Jose"
+    help:
+      - "How to make a sock-puppet"
+  edit:
+    private:
+      - 2
+      - "Oppa, Gangnam style"
+    public:
+      - 3
+      - "Tum-te-tum"
+    help:
+      - "How to edit other people's profiles"
+  forgive:
+    private:
+      - 4
+      - "You should just copy the live settings"
+    public:
+      - 3
+      - "That would make them set in stone though"
+    help:
+      - "How to delete bans"
+  fortune:
+    private:
+      - 5
+      - "Or would it?"
+    public:
+      - 3
+      - "Meh. Nearly done."
+    help:
+      - "How to get fortune cookies"
+  guest_command:
+    private:
+      - 1
+      - "I don't handle that"
+    public:
+      - 1
+      - "Or this, either"
+    help:
+      - "Talk to the other guy about that"
+  help:
+    private:
+      - 1
+      - "You're hardly going to block this one anyway"
+    public:
+      - 1
+      - "Unless you're feeling mean"
+    help:
+      - "How to get help"
+  ogle:
+    private:
+      - 4
+      - "And finally..."
+    public:
+      - 3
+      - "This one!"
+    help:
+      - "How to look at profiles"
+  profiles:
+    private:
+      - 2
+      - "Not telling"
+    public:
+      - 3
+      - "I said..."
+    help:
+      - "How many profiles"
+  raw:
+    private:
+      - 2
+      - "Uncooked nonsense."
+    public:
+      - 5
+      - "Can't let you do this, Dave."
+    help:
+      - "Help for raw command."
+  refine:
+    private:
+      - 1
+      - ""
+    public:
+      - 1
+      - ""
+    help:
+      - "Type <b>!refine<b> for the list of commands to modify your profile."
+  rules:
+    private:
+      - 1
+      - "Who are you?"
+    public:
+      - 1
+      - "I said..."
+    help:
+      - "Here are the rules"
+  sweep:
+    private:
+      - 4
+      - "Gibberish"
+    public:
+      - 4
+      - "Here's your broom"
+    help:
+      - "How to sweep out old bans"
+  scram:
+    private:
+      - 6
+      - "Sorry. No."
+    public:
+      - 6
+      - "Not today."
+    help:
+      - "How to get lost."
+prompts:
+  age:     'Enter your age with '
+  sex:     'Enter your gender and/or sexual orientation with '
+  loc:     'Enter your location with '
+  bdsm:    'Enter your position on the BDSM spectrum with '
+  limits:  'Tell us some of the things that tick you off with '
+  kinks:   'Tell us about things that scare you with '
+  fantasy: 'Share what makes you hot under the collar with '
+  desc:    'Enter a word picture with '
+  quote:   'Inspire us with '
+  intro:   'Impress us with '
+real_bot: 'testIgor'
+rules:
+  - 'This is a rule'
+  - 'Mention <<channel>> here'
+  - 'Then mention <<bot_nick>> and <<bot_nick>>'
+  - 'Two different tags. First <<bot_nick>> then <<channel>> here'
+  - 'There is no config entry for <<_this_tag_>> so leave it alone'
+server_list:
+  - irc.chatrooms.com
+  - irc.gossip.com
+shortest_mask: 5
+search_result_max: 3
+shortest_search: 4
+status:
+  out:   0
+  there: 1
+  voice: 2
+  hop:   3
+  aop:   4
+  sop:   5
+  owner: 6
+  bop:   7
+style:
+  colour: red
+  size: 12
+tags:
+  age:     Age
+  sex:     Sex
+  loc:     Location
+  bdsm:    BDSM
+  limits:  Limits
+  kinks:   Kinks
+  fantasy: Fantasy
+  desc:    Description
+  quote:   Quote
+  intro:   Intro
+teaser_fields:
+- age
+- sex
+- loc
+- bdsm
+timestamp_db: '%F %T'
+timestamp_output: '%T, %A, %d %B, %Y %Z'
+username: i_am_config
+
+devel:
+  username: test_config
+  style:
+    size: 15
+    emphasis: bold
+
+deputy:
+  username: deputy_config
+  server_list:
+    - irc.deputy.com
+    - irc.deputy.org
+  policy:
+    refine:
+      private:
+        - 10
+        - "Profile editing commands disabled for a while."
+      public:
+        - 10
+        - "Profile commands are disabled for a while."
+      help:
+        - "Profile editing disabled for now."
+...

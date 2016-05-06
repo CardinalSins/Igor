@@ -1,0 +1,47 @@
+---
+- id: 1
+  duration: 4
+  lift_on: 3012-05-28 22:41:01
+  mask: "*!*@*.telcom.ua"
+  reason: arbitrary whim
+  set_by: Gil
+  set_on: 2012-05-24 22:41:01
+  units: days
+  expired: 0
+- id: 2
+  duration: 40
+  lift_on: 2012-05-28 14:14:14
+  mask: "*!upper@*.cynisp.ro"
+  reason: Rudeness
+  set_by: katy
+  set_on: 2010-10-28 14:14:41
+  units: weeks
+  expired: 0
+- id: 3
+  duration: 3
+  lift_on: 2012-07-22 22:41:01
+  mask: "*!zzperky@*.ro"
+  set_by: katy
+  set_on: 2012-05-22 22:41:01
+  units: months
+  reason: Contractual obligation
+  expired: 0
+- id: 4
+  duration: 4
+  lift_on: 2012-05-28 22:41:01
+  mask: "*!*@*.telcom.ua"
+  reason: copy_cat
+  set_by: I_am_not_Gil
+  set_on: 2012-05-23 22:21:01
+  units: weeks
+  expired: 0
+- id: 5
+  duration: 12
+  lift_on: 2012-07-23 14:41:01
+  mask: "*!zzperky@*.ro"
+  set_by: I_am_not_katy
+  set_on: 2012-05-22 22:41:01
+  units: days
+  expired: 1
+  reason: Boilerplate
+...

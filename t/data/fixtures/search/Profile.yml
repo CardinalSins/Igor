@@ -1,0 +1,142 @@
+---
+- age: 23
+  bdsm: Yes please
+  desc: Cool, witty and engaging
+  fanfare: 1
+  fantasy: denial
+  last_access: 2011-01-15 12:34:01
+  loc: None of your business
+  nick: udp_guy
+  limits: peevishness
+  kinks: I have uniquely distinctive and odd proclivities
+  sex: banal
+- age: 23
+  bdsm: Yes please
+  desc: Cool, witty and engaging
+  fanfare: 1
+  fantasy: denial
+  last_access: 1989-01-01 10:20:01
+  loc: None of your business
+  nick: metachars
+  limits: peevishness
+  kinks: I have {awkward!} ch@r$ in ][ere ^^^^^^^
+  sex: banal
+- age: not a number
+  bdsm: sub
+  desc: Short and stout, here's my handle
+  fanfare: 1
+  fantasy: satiety
+  last_access: 2009-03-07 23:21:22
+  loc: Over here
+  nick: clone_1
+  limits: peevishness
+  kinks: Generic injection mould profile
+  sex: frequent
+- age: not a number
+  bdsm: sub
+  desc: Short and stout, here's my handle
+  fanfare: 1
+  fantasy: satiety
+  last_access: 2009-03-07 23:21:23
+  loc: Over here
+  nick: clone_2
+  limits: peevishness
+  kinks: Generic injection mould profile
+  sex: frequent
+- age: not a number
+  bdsm: sub
+  desc: Short and stout, here's my handle
+  fanfare: 1
+  fantasy: satiety
+  last_access: 2009-03-07 23:21:23
+  loc: Over here
+  nick: clone_3
+  limits: peevishness
+  kinks: Generic injection mould profile
+  sex: frequent
+- age: not a number
+  bdsm: sub
+  desc: Short and stout, here's my handle
+  fanfare: 1
+  fantasy: satiety
+  last_access: 2009-03-07 23:21:23
+  loc: Over here
+  nick: clone_4
+  limits: peevishness
+  kinks: Generic injection mould profile
+  sex: frequent
+- age: 33
+  nick: dont_find_me_at_all
+  fanfare: 1
+  last_access: 2009-03-07 23:21:22
+- age: 72
+  bdsm: whip-crack-away
+  desc: ription
+  fanfare: 1
+  fantasy: fear itself
+  last_access: 2999-12-12 23:59:58
+  nick: fourth
+  limits: peevishness
+  kinks: Eleven Thirteen FourTeen
+  sex: a-hem
+- age: 72
+  bdsm: whip-crack-away
+  desc: ription
+  fanfare: 1
+  fantasy: fear itself
+  last_access: 2999-12-12 23:59:59
+  nick: third
+  limits: peevishness
+  kinks: Eleven tWelve Thirteen
+  sex: a-hem
+- age: 72
+  bdsm: whip-crack-away
+  desc: ription
+  fanfare: 1
+  fantasy: fear itself
+  last_access: 2999-12-12 23:59:59
+  nick: first
+  limits: peevishness
+  kinks: tWelve Thirteen FourTeen Eleven
+  sex: a-hem
+- age: 72
+  bdsm: whip-crack-away
+  desc: ription
+  fanfare: 1
+  fantasy: fear itself
+  last_access: 2999-12-12 23:59:58
+  nick: second
+  limits: peevishness
+  kinks: Eleven FourTeen tWelve Thirteen
+  sex: a-hem
+- age: 34
+  bdsm: meh
+  desc: ription
+  fanfare: 1
+  fantasy: test for finding fantasy
+  last_access: 2999-12-12 23:59:58
+  nick: i_have_fantasy
+  limits: peevishness
+  kinks: bland and boring
+  sex: a-hem
+- age: 34
+  bdsm: meh
+  desc: ription
+  fanfare: 1
+  fantasy: don't look here
+  last_access: 2999-12-12 23:59:58
+  nick: i_have_limits
+  limits: test for finding limits
+  kinks: bland and boring
+  sex: a-hem
+- age: 34
+  bdsm: meh
+  desc: test for finding description
+  fanfare: 1
+  fantasy: don't look here
+  last_access: 2999-12-12 23:59:58
+  nick: i_have_desc
+  limits: don't look here
+  kinks: bland and boring
+  sex: a-hem
+...

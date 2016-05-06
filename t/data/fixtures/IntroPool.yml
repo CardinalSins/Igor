@@ -1,0 +1,30 @@
+---
+- id: 1
+  given_by: first
+  saved_on: 2009-03-07 23:21:22
+  content: Yeah, baby, I'm a findintro LIMIT test
+- id: 2
+  given_by: second
+  saved_on: 2009-03-08 23:21:22
+  content: I'm a findintro limit test, that's right
+- id: 3
+  given_by: third
+  saved_on: 2009-03-09 23:21:22
+  content: I'm a       findintro       limit        test
+- id: 4
+  given_by: fourth
+  saved_on: 2009-03-10 23:21:22
+  content: I'm a findintro limit test
+- id: 5
+  given_by: fifth
+  saved_on: 2009-03-11 23:21:22
+  content: I'M A FINDINTRO LIMIT TEST
+- id: 6
+  given_by: sixth
+  saved_on: 2009-03-12 23:21:22
+  content: I'm a findintro limit test, but no-one cares.
+- id: 7
+  given_by: seventh
+  saved_on: 2009-03-13 23:21:22
+  content: ^.*\*  Look?   + $@  ....{4}  (ab)|[ab] $
+...

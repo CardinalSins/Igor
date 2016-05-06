@@ -1,0 +1,57 @@
+---
+- age: 23
+  bdsm: Yes please
+  desc: Cool, witty and engaging
+  fanfare: 1
+  limits: denial
+  last_access: 2012-05-28 22:41:01
+  loc: None of your business
+  nick: mrturniphead
+  kinks: failing tests
+  fantasy: Big long-ass string of text
+  intro: Heeere's Johnny!
+  quote: That's what she said!
+  sex: banal
+- age: not a number
+  bdsm: sub
+  desc: Short and stout, here's my handle
+  fanfare: 0
+  kinks: satiety
+  last_access: 2009-03-07 23:21:22
+  loc: Over here
+  nick: mrsturnipbum
+  limits: peeves
+  fantasy: something goes here
+  sex: frequent
+- age: 33
+  nick: partial_profile
+- age: 72
+  bdsm: whip-crack-away
+  desc: ription
+  limits: fear itself
+  nick: almost_dun
+  kinks: peevishness
+  fantasy: predilictions
+  sex: a-hem
+- nick: oldtimer
+  age: Certainly, yes.
+  bdsm: something something
+  desc: I set this already
+  fantasy: whipped cream
+  intro: Ladies and Gentlemen....
+  limits: integrated
+  loc: ation
+  quote: so anyway, he sez that I sez...
+  sex: Mhm
+  fanfare: 1
+- nick: oldertimer
+  age: Certainly not!
+  bdsm: anything anything
+  desc: I keep on setting this
+  fantasy: Turkish delight
+  intro: Gentlemen and ladies....
+  limits: mathematical
+  loc: alized
+  sex: Mhm
+  fanfare: 1
+...
