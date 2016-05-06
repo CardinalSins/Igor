@@ -18,6 +18,7 @@ run_fork {
         sigtrap->import( 'handler' => $handler, 'normal-signals' );
 
         $igor->run();
+    }
     parent {
         my $child_pid = shift;
         # waitpid $child_pid, 0;
